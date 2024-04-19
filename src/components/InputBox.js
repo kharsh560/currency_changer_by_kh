@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-function InputBox({ heading = "From", fxn }) {
+function InputBox({ heading = "From", fxn, defaultCurrency }) {
   const styleForCard = {
     background: "rgba(255, 255, 255, 0.549)",
     "box-shadow": "0 5px 15px rgba(0, 0, 0, 0.5)",
@@ -11,7 +11,7 @@ function InputBox({ heading = "From", fxn }) {
   useEffect(() => {
     fxn(selectedCurrencyRef.current.value);
   }, []);
-//   Used to run this function on page load so that the option in select tag is sent to the function "fxn"
+  //   Used to run this function on page load so that the option in select tag is sent to the function "fxn"
 
   return (
     <div style={styleForCard} className="  flex justify-center rounded-xl ">
@@ -36,6 +36,8 @@ function InputBox({ heading = "From", fxn }) {
             name="currencies"
             className="m-2 bg-slate-500/50 text-center p-1 font-bold cursor-pointer "
             ref={selectedCurrencyRef}
+            defaultValue={defaultCurrency}
+            // Used "defaultValue" to set the default option!!
             // onClick={() => fxn(selectedCurrencyRef.current.value)}
             onChange={() => fxn(selectedCurrencyRef.current.value)}
           >
