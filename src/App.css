@@ -1,0 +1,11 @@
+.bgImg {
+    background-image: url('./assets/bgImg3.jpg');
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+
+ .panelBox {
+    background: rgba(255, 255, 255, 0.235);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+} 
+/* See the InputBox.js on how to write CSS inside the JSX file only!! */
