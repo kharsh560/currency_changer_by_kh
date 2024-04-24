@@ -27,8 +27,8 @@ function App() {
   //   setSelectedToCurrency(selectedFromCurrency);
   //   // Yes no extra variable needed bcoz, the previous state is still present in react!!
   //   // aslo. if the user has already converted some amount, then those should also be exchanged
-  //   setconvertedAmount(amount);
-  //   setAmount(convertedAmount);
+    // setconvertedAmount(amount);
+    // setAmount(convertedAmount);
   // };
 
   // 49:50 setting the convert button function
@@ -46,11 +46,15 @@ function App() {
   // I don't know Why was I making this function which would do the same thing as setSelectedFromCurrency!!
   // ##################################### BLUNDER #####################################
 
-  // const swapFunctionality = () => {
-  //   let a = selectedFromCurrency;
-  //   setSelectedFromCurrency(selectedToCurrency);
-  //   setSelectedToCurrency(a);
-  // }
+  const swapFunctionality = () => {
+    // let a = selectedFromCurrency;
+    // setSelectedFromCurrency(selectedToCurrency);
+    // setSelectedToCurrency(a);
+    setSelectedFromCurrency(selectedToCurrency);
+    setSelectedToCurrency(selectedFromCurrency);
+    setconvertedAmount(amount);
+    setAmount(convertedAmount);
+  }
 
   return (
     <div className="bgImg w-screen h-screen">
@@ -67,10 +71,10 @@ function App() {
             onCurrencyChange={setSelectedFromCurrency}
             selectCurrency={selectedFromCurrency}
             // onAmountChange = {(amount) => setAmount(amount)}
-            // onAmountChange={setAmount}
+            amount = {amount}
           />
           <button
-            // onClick={console.log(selectedFromCurrency)}
+            onClick={swapFunctionality}
             className=" bg-orange-500 p-1 m-2 text-slate-50/85  border-2 border-amber-300  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1"
           >
             Swap
