@@ -7,7 +7,7 @@ function App() {
   const [selectedFromCurrency, setSelectedFromCurrency] = useState("usd");
   const [selectedToCurrency, setSelectedToCurrency] = useState("inr");
   // By sir
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState(0);
   const [convertedAmount, setconvertedAmount] = useState(0);
   // console.log(selectedFromCurrency);
   // the hook which we created to get the conversion rates of "selectedFromCurrency" into different currencies.
@@ -27,8 +27,8 @@ function App() {
   //   setSelectedToCurrency(selectedFromCurrency);
   //   // Yes no extra variable needed bcoz, the previous state is still present in react!!
   //   // aslo. if the user has already converted some amount, then those should also be exchanged
-    // setconvertedAmount(amount);
-    // setAmount(convertedAmount);
+  // setconvertedAmount(amount);
+  // setAmount(convertedAmount);
   // };
 
   // 49:50 setting the convert button function
@@ -54,7 +54,7 @@ function App() {
     setSelectedToCurrency(selectedFromCurrency);
     setconvertedAmount(amount);
     setAmount(convertedAmount);
-  }
+  };
 
   return (
     <div className="bgImg w-screen h-screen">
@@ -71,11 +71,11 @@ function App() {
             onCurrencyChange={setSelectedFromCurrency}
             selectCurrency={selectedFromCurrency}
             // onAmountChange = {(amount) => setAmount(amount)}
-            amount = {amount}
+            amount={amount}
           />
           <button
             onClick={swapFunctionality}
-            className=" bg-orange-500 p-1 m-2 text-slate-50/85  border-2 border-amber-300  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1"
+            className="bg-slate-500/55 text-slate-50/65 p-1 m-2   border-2  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1"
           >
             Swap
           </button>
@@ -93,12 +93,16 @@ function App() {
           />
           <button
             onClick={convertFunctionality}
-            className=" bg-slate-500/55 text-slate-50/65 p-1 mt-2 w-full  border-2  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1"
+            className="bg-orange-500 p-1 m-2 text-slate-50/85  border-2 border-amber-300  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1"
           >
             {/* `Convert ${selectedFromCurrency} to ${selectedToCurrency}` */}
-            Convert {amount} {selectedFromCurrency} to {selectedToCurrency}
+            {amount} {selectedFromCurrency.toUpperCase()} in{" "}
+            {selectedToCurrency.toUpperCase()} is :-
           </button>
-          <div id="ResultBox" className="bg-black/60 p-2 rounded-lg m-1 w-fit h-fit text-white ">
+          <div
+            id="ResultBox"
+            className="bg-black/60 p-2 rounded-lg m-1 w-fit h-fit text-white "
+          >
             {convertedAmount} {selectedToCurrency}
           </div>
         </div>
@@ -108,3 +112,9 @@ function App() {
 }
 
 export default App;
+
+// Swap
+//  bg-orange-500 p-1 m-2 text-slate-50/85  border-2 border-amber-300  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1
+
+// Currency Button
+//  bg-slate-500/55 text-slate-50/65 p-1 mt-2 w-full  border-2  rounded-xl font-extrabold text-lg hover:bg-orange-600 hover:-translate-y-[2px] active:translate-y-1

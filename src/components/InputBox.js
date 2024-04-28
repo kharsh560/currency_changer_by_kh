@@ -43,7 +43,9 @@ function InputBox({
           className={`m-2 w-[50%] bg-slate-500/50 p-1 font-bold ${displayType}`}
           // I used the curly braces for entering class name bcoz I wanted to input a variable over there
           value={amount}
-          onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+          onChange={(e) =>
+            onAmountChange && onAmountChange(Number(e.target.value))
+          }
           // Used "&&" so as to deal with the situation where in user has not passed any function to this component
         ></input>
       </form>
@@ -64,11 +66,16 @@ function InputBox({
             // onChange={() => fxnToUpdateState(selectedCurrencyRef.current.value)}
             // By sir; 32 min
             value={selectCurrency}
-            onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+            onChange={(e) =>
+              onCurrencyChange && onCurrencyChange(e.target.value)
+            }
           >
             34:20 min
-            {currencyOptions.map((currency) =>(
-              <option key={currency} value={currency}> {currency} </option>
+            {currencyOptions.map((currency) => (
+              <option key={currency} value={currency}>
+                {" "}
+                {currency}{" "}
+              </option>
             ))}
             {/* Note:- We used "() => ()" instead of "() => {}" bcoz we did not want to return any value via this callback function! */}
             {/* We used the "key" here to manage react's performance while mapping */}
