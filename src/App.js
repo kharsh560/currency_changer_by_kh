@@ -12,14 +12,42 @@ function App() {
   // console.log(selectedFromCurrency);
   // the hook which we created to get the conversion rates of "selectedFromCurrency" into different currencies.
   const currencyInfo = useCurrencyInfo(selectedFromCurrency);
+  // currencyInfo is an object! contanining values "inr in ${thisCurrency} can be found using this conversion factor as a multiplier"
+  // Like this :-
+  // "$myro": 0.089825957,
+  // "$wen": 88.89236745,
+  // "00": 0.23190545,
+  // "0x0": 0.055574766,
+  // "1000sats": 63.61450678,
+  // "10set": 0.027550199,
+  // "1inch": 0.031058566,
+  // "aave": 0.00012512609,
+  // "abt": 0.0051626547,
+  // "ach": 0.53840768,
+  // "acs": 6.49392987,
+  // "ada": 0.030203306,
+  // "aed": 0.044054387,
+  // "aergo": 0.13304997,
+  // "aero": 0.017019829,
+  // "aevo": 0.025135491,
+  // "afn": 0.85239219,
+  // "agi": 0.058124384,
+  // "agix": 0.020870647,
+  // "agld": 0.012553459,
+  // "ai": 0.018095563,
+  // "aioz": 0.022083185,
+  // "akt": 0.0032995344,
   // console.log(currencyInfo);
   //It will return the JSON of keys as well as conversion rates
+
+  const currencyData = currencyInfo[selectedToCurrency];
+  // We are using this syntax to search for the key in object which involves searching by the key's name as "string"
+  // console.log(currencyData);
+
   const currencyOptionsBackend = Object.keys(currencyInfo);
+  // Here, we extracted just the keys of the object stored in currencyInfo
   // console.log(currencyOptionsBackend);
   //It will give us only the keys from the JSON data we get in return
-  const currencyData = currencyInfo[selectedToCurrency];
-  // console.log(currencyData);
-  // console.log(currencyOptionsBackend);
 
   // 48:30 Swap functionality
   // const swapFunctionality = () => {
